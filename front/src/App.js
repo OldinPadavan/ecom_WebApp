@@ -6,6 +6,7 @@ import Footer from './customer/components/Footer/Footer';
 import Product from './customer/components/Product/Product';
 import ProductInfo from './customer/components/ProductInfo/ProductInfo';
 import Cart from './customer/components/Cart/Cart';
+import Order from './customer/components/Order/Order';
 import OrderCreating from './customer/components/OrderCreating/OrderCreating';
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
     {/*<Product/>*/}
     {/*<ProductInfo/>*/}
     {/*<Cart/>*/}
-    <OrderCreating/>
+    {/*<OrderCreating/>*/}
+    <Order/>
     </div>
     <div>
     <Footer/>

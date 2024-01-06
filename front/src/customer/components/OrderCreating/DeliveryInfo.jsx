@@ -17,11 +17,11 @@ const DeliveryInfo = () => {
   };
   return (
     <div>
-      <Grid container spacing={4}>
-        <Grid className='border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll'>
+      <Grid container spacing={2}>
+        <Grid xs={6} lg={3}className='border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll'>
           <div className='p-5 py-7 border-b cursor-pointer'>
           <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
+        <InputLabel size='small' id="demo-simple-select-autowidth-label">Магазины:</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"
@@ -40,7 +40,7 @@ const DeliveryInfo = () => {
       </FormControl>
           </div>
         </Grid>
-        <Grid item xs={12} lg={7}>
+        <Grid item xs={12} lg={6}>
           <Box className="border rouded-s-md shadow-md p-5">
             <form>
               <Grid container spacing={3}>
@@ -51,31 +51,35 @@ const DeliveryInfo = () => {
                   name="storeName"
                   label="Название магазина"
                   fullWidth
-                  />
-                  <TextField
-                  disabled
-                  id="storeAddress"
-                  name="storeAddress"
-                  label="Адрес магазина"
-                  fullWidth
-                  />
-                  <TextField
+                  />                 
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                <TextField
                   disabled
                   id="storePhone"
                   name="storePhone"
                   label="Контактный телефон"
                   fullWidth
                   />
-                  
-                  <div>
-                   
-                  </div>
                 </Grid>
-                <Grid>
-                  
+                <Grid item xs={12}>
+                <TextField
+                  disabled
+                  id="storeAddress"
+                  name="storeAddress"
+                  label="Адрес магазина"
+                  fullWidth
+                  multiline
+                  rows={4}
+                  /> 
                 </Grid>
-                <Grid>
-                  
+                <Grid item xs={2} sm={2}>
+                  <Button sx={{py: 1.5, mt: 2, bgcolor: 'black'}}
+                  size='large'
+                  variant='contained'
+                  type='submit'>
+                    Доставить сюда
+                  </Button>
                 </Grid>
               </Grid>
             </form>

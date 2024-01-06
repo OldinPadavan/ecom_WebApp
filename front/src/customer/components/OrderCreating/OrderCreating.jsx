@@ -63,7 +63,7 @@ export default function OrderCreating() {
             </Button>
 
           </Box>
-          <div>
+          <div className='mt-10'>
             {step==2?<DeliveryInfo/>:<OrderSummary/>}
           </div>
         </React.Fragment>
