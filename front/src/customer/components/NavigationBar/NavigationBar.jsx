@@ -2,7 +2,11 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import {Avatar, Button, Menu, MenuItem } from '@mui/material'
+import { deepPurple } from '@mui/material/colors'
 import {navigation} from "./NavigationData"
+import { useNavigate } from 'react-router-dom'
+
 
 
 function classNames(...classes) {
@@ -11,6 +15,33 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false)
+  const navigate=useNavigate();
+
+  const [openAuthModal, setOpenAuthModal] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const openUserMenu = Boolean(anchorEl);
+  const jwt = localStorage.getItem("jwt");
+
+  const handleUserClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  
+  const handleCloseUserMenu = (event) => {
+    setAnchorEl(null);
+  };
+
+  const handleOpen = () => {
+    setOpenAuthModal(true);
+  };
+
+  const handleClose = () => {
+    setOpenAuthModal(false);
+  };
+
+  const handleCategoryClick = (category, section, item, close) => {
+    navigate(`/${category.id}, /${section.id},/${item.id}`);
+    close();
+  };
 
   return (
     <div className="bg-white  pb-10 sticky top-0 z-50">
@@ -179,7 +210,7 @@ export default function Navigation() {
                 <div className="flex h-full space-x-8">
                   {navigation.categories.map((category) => (
                     <Popover key={category.name} className="flex">
-                      {({ open }) => (
+                      {({ open, close }) => (
                         <>
                           <div className="relative flex">
                             <Popover.Button
@@ -243,9 +274,18 @@ export default function Navigation() {
                                           >
                                             {section.items.map((item) => (
                                               <li key={item.name} className="flex">
-                                                <a href={item.href} className="hover:text-gray-800">
+                                                <p 
+                                                onClick={() =>
+                                                handleCategoryClick(
+                                                  category,
+                                                  section,
+                                                  item,
+                                                  close
+                                                )
+                                              } className= "cursor-pointer hover:text-grey-800"
+                                              >
                                                   {item.name}
-                                                </a>
+                                                  </p>
                                               </li>
                                             ))}
                                           </ul>

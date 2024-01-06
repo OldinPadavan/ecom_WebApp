@@ -1,10 +1,12 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import FilterTiltShiftRoundedIcon from '@mui/icons-material/FilterTiltShiftRounded';
+import { useNavigate } from 'react-router-dom';
 
 const OrderCart = () => {
+  const navigate = useNavigate();
   return (
-    <div className='p-5 shadow-md shadow-grey hover:shadow-2x1 border'>
+    <div onClick={()=>navigate(`/account/order/${5}`)} className='p-5 shadow-md shadow-grey hover:shadow-2x1 border'>
       <Grid container spacing={2} sx={{justifyContent:"space-between"}}>
         <Grid item xs={6}>
           <div className='flex cursor-pointer'>
