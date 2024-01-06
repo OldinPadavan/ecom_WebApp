@@ -29,15 +29,6 @@ public class User {
 
     private LocalDateTime createdAt;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getLastName() {
         return lastName;
     }
@@ -78,40 +69,6 @@ public class User {
         this.email = email;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public List<PaymentInformation> getPaymentInformation() {
-        return paymentInformation;
-    }
-
-    public void setPaymentInformation(List<PaymentInformation> paymentInformation) {
-        this.paymentInformation = paymentInformation;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public User() {
-
     }
-
 }
