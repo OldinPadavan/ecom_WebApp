@@ -1,78 +1,25 @@
-package com.shirokov.e_commerce_app.model;
+package com.shirokov.e_commerce_app.request;
 
-import jakarta.persistence.*;
+import com.shirokov.e_commerce_app.model.Size;
 
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-public class Product {
+public class CreateProductRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name="title")
     private String title;
-
-    @Column(name="description")
     private String description;
 
-    @Column(name="product_code")
     private long code;
-
-    @Column(name="price")
     private int price;
-    @Column(name="discounted_price")
     private int discountedPrice;
-    @Column(name="discount_percent")
     private int discountPercent;
-    @Column(name="quantity")
     private int quantity;
-
-    @Column(name="color")
     private String color;
-
-    @Embedded
-    @ElementCollection
-    @Column(name="sizes")
-    private Set<Size>sizes=new HashSet<>();
-    @Column(name="image_url")
+    private Set<Size>sizes = new HashSet<>();
     private String imageUrl;
-    @ManyToOne()
-    @JoinColumn(name="category_id")
-    private Category category;
-
-    private LocalDateTime createdAt;
-
-
-    public Product() {
-
-    }
-    public Product(Long id, String title, String description, long code, int price, int discountedPrice, int discountPercent, int quantity, String color, Set<Size> sizes, String imageUrl, Category category, LocalDateTime createdAt) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.code = code;
-        this.price = price;
-        this.discountedPrice = discountedPrice;
-        this.discountPercent = discountPercent;
-        this.quantity = quantity;
-        this.color = color;
-        this.sizes = sizes;
-        this.imageUrl = imageUrl;
-        this.category = category;
-        this.createdAt = createdAt;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String firstLevelCategory;
+    private String secondLevelCategory;
 
     public String getTitle() {
         return title;
@@ -154,21 +101,29 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getFirstLevelCategory() {
+        return firstLevelCategory;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setFirstLevelCategory(String firstLevelCategory) {
+        this.firstLevelCategory = firstLevelCategory;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public String getSecondLevelCategory() {
+        return secondLevelCategory;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setSecondLevelCategory(String secondLevelCategory) {
+        this.secondLevelCategory = secondLevelCategory;
     }
 
+    public String getThirdLevelCategory() {
+        return thirdLevelCategory;
+    }
 
+    public void setThirdLevelCategory(String thirdLevelCategory) {
+        this.thirdLevelCategory = thirdLevelCategory;
+    }
+
+    private String thirdLevelCategory;
 }

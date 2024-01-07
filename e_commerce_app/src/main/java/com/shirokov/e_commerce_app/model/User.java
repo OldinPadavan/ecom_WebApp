@@ -65,6 +65,42 @@ public class User {
         return email;
     }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public void setPaymentInformation(List<PaymentInformation> paymentInformation) {
+        this.paymentInformation = paymentInformation;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public List<PaymentInformation> getPaymentInformation() {
+        return paymentInformation;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }

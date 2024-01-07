@@ -1,6 +1,6 @@
 package com.shirokov.e_commerce_app.service;
 
-import com.shirokov.e_commerce_app.exseption.UserException;
+import com.shirokov.e_commerce_app.exception.UserException;
 import com.shirokov.e_commerce_app.model.User;
 
 public interface UserService {

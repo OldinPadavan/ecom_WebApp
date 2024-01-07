@@ -1,4 +1,4 @@
-package com.shirokov.e_commerce_app.exseption;
+package com.shirokov.e_commerce_app.exception;
 
 public class UserException extends Exception{
 

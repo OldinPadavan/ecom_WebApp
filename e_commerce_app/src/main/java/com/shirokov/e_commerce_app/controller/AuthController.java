@@ -1,7 +1,7 @@
 package com.shirokov.e_commerce_app.controller;
 
 import com.shirokov.e_commerce_app.config.JwtProvider;
-import com.shirokov.e_commerce_app.exseption.UserException;
+import com.shirokov.e_commerce_app.exception.UserException;
 import com.shirokov.e_commerce_app.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -68,7 +68,9 @@ public class AuthController {
 
         String token = jwtProvider.generateToken(authentication);
 
-        AuthResponse authResponse = new AuthResponse(token, "Registration success");
+        AuthResponse authResponse = new AuthResponse();
+        authResponse.setJwt(token);
+        authResponse.setMessage("SignUp Success");
 
         return new ResponseEntity<AuthResponse>(authResponse, HttpStatus.CREATED);
     }
@@ -84,7 +86,9 @@ public class AuthController {
 
         String token = jwtProvider.generateToken(authentication);
 
-        AuthResponse authResponse = new AuthResponse(token, "Log in done");
+        AuthResponse authResponse = new AuthResponse();
+        authResponse.setJwt(token);
+        authResponse.setMessage("LogIn Success");
 
         return new ResponseEntity<AuthResponse>(authResponse, HttpStatus.CREATED);
     }
