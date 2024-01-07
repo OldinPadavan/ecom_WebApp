@@ -11,6 +11,34 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setParentCategory(Category parentCategory) {
+        this.parentCategory = parentCategory;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Category getParentCategory() {
+        return parentCategory;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
     @NotNull
     @Size(max = 50)
     private String name;
