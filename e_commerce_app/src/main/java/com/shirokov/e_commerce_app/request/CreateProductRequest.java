@@ -20,6 +20,7 @@ public class CreateProductRequest {
     private String imageUrl;
     private String firstLevelCategory;
     private String secondLevelCategory;
+    private String thirdLevelCategory;
 
     public String getTitle() {
         return title;
@@ -125,5 +126,4 @@ public class CreateProductRequest {
         this.thirdLevelCategory = thirdLevelCategory;
     }
 
-    private String thirdLevelCategory;
 }

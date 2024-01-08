@@ -3,7 +3,6 @@ package com.shirokov.e_commerce_app.service;
 import com.shirokov.e_commerce_app.exception.ProductException;
 import com.shirokov.e_commerce_app.model.Category;
 import com.shirokov.e_commerce_app.model.Product;
-import com.shirokov.e_commerce_app.model.Size;
 import com.shirokov.e_commerce_app.repository.CategoryRepository;
 import com.shirokov.e_commerce_app.repository.ProductRepository;
 import com.shirokov.e_commerce_app.request.CreateProductRequest;
@@ -128,7 +127,12 @@ public class ProductServiceImplementation implements ProductService {
     }
 
     @Override
-    public Page<Product> getAllProduct(String category, List<String> colors, List<Size> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize) {
+    public List<Product> findAllProducts() {
+        return null;
+    }
+
+    @Override
+    public Page<Product> getAllProduct(String category, List<String> colors, List<String> sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize) {
 
 
         Pageable pageable= PageRequest.of(pageNumber, pageSize);
