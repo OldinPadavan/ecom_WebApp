@@ -1,12 +1,13 @@
 import React from 'react'
 import CartItem from '../Cart/CartItem'
 import { Button, IconButton } from '@mui/material'
+import AddressCart from '../AddressCart/AddressCart'
 
 const OrderSummary = () => {
   return (
     <div>
       <div className='p-5 shadow-lg rounded-s-md border'>
-
+        <AddressCart/>
       </div>
       <div>
         <div className='lg:grid grid-cols-3 relative py-3'>

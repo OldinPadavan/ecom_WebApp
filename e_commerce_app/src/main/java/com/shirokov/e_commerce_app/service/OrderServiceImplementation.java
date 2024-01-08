@@ -4,6 +4,7 @@ import com.shirokov.e_commerce_app.exception.OrderException;
 import com.shirokov.e_commerce_app.model.Address;
 import com.shirokov.e_commerce_app.model.Order;
 import com.shirokov.e_commerce_app.model.User;
+import com.shirokov.e_commerce_app.repository.CartRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,13 +13,13 @@ import java.util.List;
 public class OrderServiceImplementation implements OrderService{
 
     private CartRepository cartRepository;
-    private CartItemService cartItemService;
+    private CartService cartService;
     private ProductService productService;
 
     public OrderServiceImplementation(CartRepository cartRepository,
-                                      CartItemService cartItemService, ProductService productService) {
+                                      CartService cartService, ProductService productService) {
         this.cartRepository = cartRepository;
-        this.cartItemService = cartItemService;
+        this.cartService = cartService;
         this.productService = productService;
     }
 

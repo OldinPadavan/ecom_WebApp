@@ -1,86 +1,110 @@
 import React from 'react'
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+
 import {Button, Grid, Box, TextField} from '@mui/material';
-import { Wrapper, Status } from '@googlemaps/react-wrapper';
+
+import AddressCart from '../AddressCart/AddressCart';
 
 
 const DeliveryInfo = () => {
-  const [age, setAge] = React.useState('');
 
- 
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const address = {
+      lastName:data.get("lastName"),
+      firstName:data.get("firstName"),
+      middleName:data.get("middleName"),
+      address:data.get("address"),
+      city:data.get("city"),
+      region:data.get("region"),
+      postalCode:data.get("postalCode"),
+      phoneNumber:data.get("phoneNumber")
+    }
+
+    console.log("address", address)
+  }
   
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
   return (
     <div>
-      <Grid container spacing={2}>
-        <Grid xs={6} lg={3}className='border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll'>
+      <Grid container spacing={4}>
+        <Grid xs={12} lg={4} className='border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll'>
           <div className='p-5 py-7 border-b cursor-pointer'>
-          <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel size='small' id="demo-simple-select-autowidth-label">Магазины:</InputLabel>
-        <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
-          value={age}
-          onChange={handleChange}
-          autoWidth
-          label="Age"
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Twenty</MenuItem>
-          <MenuItem value={21}>Twenty one</MenuItem>
-          <MenuItem value={22}>Twenty one and a half</MenuItem>
-        </Select>
-      </FormControl>
+            <AddressCart/>
+            <Button sx={{mt:2, bgcolor:'black'}}
+            size='large' variant='contained'>Выбрать для доставки</Button>
           </div>
         </Grid>
-        <Grid item xs={12} lg={6}>
-          <Box className="border rouded-s-md shadow-md p-5">
-            <form>
+        <Grid item xs={12} lg={7}>
+          <Box className="border rounded-s-md shadow-md p-5">
+            <form onSubmit={handleSubmit}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
-                  <TextField
-                  disabled
-                  id="storeName"
-                  name="storeName"
-                  label="Название магазина"
-                  fullWidth
-                  />                 
+                  <TextField required
+                  id="lastName"
+                  name="lastName"
+                  label="Фамилия"
+                  fullWidth/>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                <TextField
-                  disabled
-                  id="storePhone"
-                  name="storePhone"
-                  label="Контактный телефон"
-                  fullWidth
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                <TextField
-                  disabled
-                  id="storeAddress"
-                  name="storeAddress"
-                  label="Адрес магазина"
+                  <TextField required
+                   id="firstName"
+                   name="firstName"
+                   label="Имя"
+                   fullWidth/>
+                  </Grid>
+                  <Grid item xs={12} sm={6} >
+                  <TextField 
+                  id="middleName"
+                  name="middleName"
+                  label="Отчество"
+                  fullWidth/>
+                  </Grid>
+
+                  <Grid item xs={12} sm={6}>
+                  <TextField required
+                   id="city"
+                   name="city"
+                   label="Город"
+                   fullWidth/>
+                  </Grid>
+
+                  <Grid item xs={12} >
+                  <TextField required  
+                  id="address"
+                  name="address"
+                  label="Адрес"
                   fullWidth
                   multiline
-                  rows={4}
-                  /> 
-                </Grid>
-                <Grid item xs={2} sm={2}>
-                  <Button sx={{py: 1.5, mt: 2, bgcolor: 'black'}}
-                  size='large'
-                  variant='contained'
-                  type='submit'>
-                    Доставить сюда
+                  rows={2}/>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                  <TextField required
+                   id="region"
+                   name="region"
+                   label="Регион"
+                   fullWidth/>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                  <TextField required
+                   id="postalCode"
+                   name="postalCode"
+                   label="Индекс"
+                   fullWidth/>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                  <TextField required
+                   id="phoneNumber"
+                   name="phoneNumber"
+                   label="Телефон"
+                   fullWidth/>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                  <Button sx={{ py:2, mt:2, bgcolor:'black'}}
+                  size='large' variant='contained'
+                  type="submit">
+                    Доставить сюда!
                   </Button>
-                </Grid>
+                  </Grid>
               </Grid>
             </form>
           </Box>

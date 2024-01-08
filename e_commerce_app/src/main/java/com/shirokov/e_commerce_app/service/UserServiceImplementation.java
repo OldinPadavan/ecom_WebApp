@@ -4,9 +4,11 @@ import com.shirokov.e_commerce_app.config.JwtProvider;
 import com.shirokov.e_commerce_app.exception.UserException;
 import com.shirokov.e_commerce_app.model.User;
 import com.shirokov.e_commerce_app.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserServiceImplementation implements UserService{
 
     private UserRepository userRepository;
